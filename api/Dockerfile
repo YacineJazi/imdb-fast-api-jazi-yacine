@@ -20,6 +20,4 @@ RUN pip install --no-index --find-links=/root/wheels -r requirements.txt
 LABEL org.opencontainers.image.source="https://github.com/YacineJazi/imdb-fast-api-jazi-yacine"
 
 COPY ./app /app
-RUN dos2unix /app/prestart.sh
-RUN chmod +x /app/prestart.sh
 ENV PYTHONPATH=/app

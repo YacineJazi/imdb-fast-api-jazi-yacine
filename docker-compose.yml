@@ -1,5 +1,9 @@
  services:
+    image: ghcr.io/yacinejazi/imdb-fast-api-jazi-yacine:main
     api:
         build:
           context: api
           dockerfile: Dockerfile
+          
+        
+        
