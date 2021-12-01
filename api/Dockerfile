@@ -17,7 +17,7 @@ RUN apt-get -y install libgl1-mesa-glx dos2unix
 
 RUN pip install --no-index --find-links=/root/wheels -r requirements.txt
 
-LABEL org.opencontainers.image.source="https://github.com/jaziyacine/imdb"
+LABEL org.opencontainers.image.source="https://github.com/YacineJazi/imdb-fast-api-jazi-yacine"
 
 COPY ./app /app
 RUN dos2unix /app/prestart.sh
