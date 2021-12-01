@@ -45,11 +45,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-        
-      - name: Save DigitalOcean kubeconfig
-        run: doctl kubernetes cluster kubeconfig save $CLUSTER_NAME
-        env: 
-          CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
 
       - name: Deploy to Kubernetes
         run: kubectl apply -f deploy.yml
