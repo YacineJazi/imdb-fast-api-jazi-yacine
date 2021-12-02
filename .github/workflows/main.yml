@@ -51,6 +51,5 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Deploy to Kubernetes
-
-        run: kubectl apply -f api/deploy.yml
+        run: kubectl apply -f api/deploy.yaml
 
