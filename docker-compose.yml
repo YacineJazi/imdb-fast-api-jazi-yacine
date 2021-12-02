@@ -4,6 +4,8 @@
         build:
           context: api
           dockerfile: Dockerfile
+         ports:
+          - 5000:80
           
         
         

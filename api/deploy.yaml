@@ -1,0 +1,42 @@
+# fastapi-api.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-api
+  namespace: imdb-fast-api 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-imdb-api 
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-imdb-api 
+    spec:
+      containers:
+        - image: ghcr.io/yacinejazi/imdb-fast-api-jazi-yacine:main
+          imagePullPolicy: Always
+          name: api-container
+          ports:
+          - containerPort: 80
+            name: 80tcp
+            protocol: TCP
+            _serviceType: ClusterIP
+      nodeName: jazi-yacine
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-storage-api
+  namespace: imdb-fast-api # Change to your own namespace!
+spec:
+  selector:
+    workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-imdb-api 
+  ports:
+    - name: fastapi-http
+      port: 30003
+      targetPort: 8080
+      nodePort: 30003
+      protocol: TCP 
+  type: NodePort
