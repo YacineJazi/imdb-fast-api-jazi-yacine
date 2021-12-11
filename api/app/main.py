@@ -20,6 +20,9 @@ def allowSelfSignedHttps(allowed):
 
 allowSelfSignedHttps(True) # this line is needed if you use self-signed certificate in your scoring service.
 
+@app.get("/")
+def start():
+    return "Welcome to API"
 
 @app.get("/movie-list")
 async def getMovieList():

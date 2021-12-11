@@ -5,7 +5,7 @@ metadata:
   name: python-api
   namespace: imdb-fast-api 
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-imdb-api 
@@ -19,7 +19,7 @@ spec:
           imagePullPolicy: Always
           name: api-container
           ports:
-          - containerPort: 80
+          - containerPort: 8000
             name: 80tcp
             protocol: TCP
             _serviceType: ClusterIP
@@ -36,7 +36,7 @@ spec:
   ports:
     - name: fastapi-http
       port: 30003
-      targetPort: 8080
+      targetPort: 8000
       nodePort: 30003
       protocol: TCP 
   type: NodePort
