@@ -19,7 +19,7 @@ spec:
           imagePullPolicy: Always
           name: api-container
           ports:
-          - containerPort: 8000
+          - containerPort: 80
             name: 80tcp
             protocol: TCP
             _serviceType: ClusterIP
@@ -36,7 +36,7 @@ spec:
   ports:
     - name: fastapi-http
       port: 30003
-      targetPort: 8000
+      targetPort: 80
       nodePort: 30003
       protocol: TCP 
   type: NodePort

@@ -22,6 +22,6 @@ LABEL org.opencontainers.image.source="https://github.com/YacineJazi/imdb-fast-a
 COPY ./app /app
 ENV PYTHONPATH=/app
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD ["uvicorn", "app.main:app", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--port", "80"]
