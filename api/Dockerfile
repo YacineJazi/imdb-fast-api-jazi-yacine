@@ -19,11 +19,9 @@ RUN pip install --no-index --find-links=/root/wheels -r requirements.txt
 
 LABEL org.opencontainers.image.source="https://github.com/YacineJazi/imdb-fast-api-jazi-yacine"
 
-EXPOSE 8000
-
-ENTRYPOINT ["uvicorn", "app:app --reload"]
-
-CMD ["uvicorn", "app.app:app", "8000"]
-
 COPY ./app /app
 ENV PYTHONPATH=/app
+
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--port", "8000"]
