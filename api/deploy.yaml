@@ -5,7 +5,7 @@ metadata:
   name: python-api
   namespace: imdb-fast-api 
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-imdb-api 
@@ -38,3 +38,4 @@ spec:
       port: 30003
       targetPort: 80
       protocol: TCP 
+    type: LoadBalancer
