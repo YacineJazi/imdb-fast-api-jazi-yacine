@@ -20,9 +20,9 @@ spec:
           name: api-container
           ports:
           - containerPort: 80
-            name: 80tcp
-            protocol: TCP
-            _serviceType: ClusterIP
+           # name: 80tcp
+           # protocol: TCP
+           # _serviceType: ClusterIP
       nodeName: jazi-yacine
 ---
 apiVersion: v1
@@ -38,3 +38,4 @@ spec:
       port: 30003
       targetPort: 80
       protocol: TCP 
+  type: LoadBalancer
