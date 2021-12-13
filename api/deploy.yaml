@@ -38,4 +38,4 @@ spec:
       port: 30003
       targetPort: 80
       protocol: TCP 
-    type: LoadBalancer
+  type: LoadBalancer
