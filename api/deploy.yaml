@@ -35,7 +35,7 @@ spec:
     workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-imdb-api 
   ports:
     - name: fastapi-http
-      port: 30003
+      port: http
       targetPort: 80
       protocol: TCP 
   type: LoadBalancer
