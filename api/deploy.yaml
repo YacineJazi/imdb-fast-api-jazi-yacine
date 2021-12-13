@@ -37,6 +37,4 @@ spec:
     - name: fastapi-http
       port: 30003
       targetPort: 80
-      nodePort: 30003
       protocol: TCP 
-  type: NodePort
