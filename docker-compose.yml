@@ -1,11 +1,12 @@
  services:
+  fastapi:
     image: ghcr.io/yacinejazi/imdb-fast-api-jazi-yacine:main
     api:
-        build:
-          context: api
-          dockerfile: Dockerfile
-         ports:
-          - 30003:80
+      build:
+        context: api
+        dockerfile: Dockerfile
+        ports:
+        - 30003:80
           
         
         
