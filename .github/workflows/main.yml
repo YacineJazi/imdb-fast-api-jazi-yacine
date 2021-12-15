@@ -51,7 +51,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Check,create,deploy Helm
         run: helm lint api \
-            helm install --name api api \
+            helm install fast-api api/ \
             helm upgrade api api \
 
       #- name: Deploy to Kubernetes
