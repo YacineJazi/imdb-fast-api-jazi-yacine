@@ -1,6 +1,8 @@
 # Default values for app1.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+
+
 metadata:
   namespace: imdb-fast-api
 
@@ -23,6 +25,7 @@ service:
   name: fastapi-http
   targetPort: 80
   port: 9999
+  type: ClusterIP
 
 ingress:
   enabled: false

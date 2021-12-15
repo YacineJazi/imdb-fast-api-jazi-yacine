@@ -2,8 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "fastapi.fullname" . }}
-  namespace: {{.Values.namespace}}
-  labels: {{ include "fastapi.labels" . | indent 4 }}
+  namespace: {{ .Values.metadata.namespace}}
 spec:
   selector:
     app.kubernetes.io/name: {{ include "fastapi.name" . }}

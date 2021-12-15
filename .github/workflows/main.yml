@@ -49,7 +49,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - name: Check,create,deploy Helm
+      - name: Check, create, deploy Helm to Kubernetes
         run: helm lint api \
             helm install fast-api api/ \
             helm upgrade api api \

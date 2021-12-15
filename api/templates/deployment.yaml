@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "fastapi.fullname" . }}
-  namespace: {{.Values.namespace}}
-  labels: {{ include "fastapi.labels" . | indent 4 }}
+  namespace: {{ .Values.metadata.namespace}}
 spec:
   replicas: {{ .Values.replicaCount }} 
   selector:
@@ -24,4 +23,4 @@ spec:
           imagePullPolicy: {{.Values.image.pullPolicy}}
           ports:
             - containerPort: 80
-          nodeName: {{ .Values.nodeName }}
+          #nodeName: {{ .Values.nodeName }}
