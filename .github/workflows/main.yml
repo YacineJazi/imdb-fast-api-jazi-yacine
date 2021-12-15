@@ -49,7 +49,12 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Check,create,deploy Helm
+        run: helm api \
+            helm install --name api api \
+            helm upgrade name api api \
+            helm install my-repo/api --name=api \\
 
-      - name: Deploy to Kubernetes
-        run: kubectl apply -f api/deploy.yaml --validate=false
+      #- name: Deploy to Kubernetes
+        #run: kubectl apply -f api/deploy.yaml --validate=false
 

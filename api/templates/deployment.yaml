@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "fastapi.fullname" . }}
+  namespace: {{.Values.namespace}}
+  labels: {{ include "fastapi.labels" . | indent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }} 
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "fastapi.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      workload.user.cattle.io/workloadselector: {{ .Values.selector }} 
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "fastapi.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        workload.user.cattle.io/workloadselector: {{ .Values.selector }} 
+    spec:
+      containers:
+        - name: {{ .Chart.Name }} 
+          image: "{{ .Values.image.package }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{.Values.image.pullPolicy}}
+          ports:
+            - containerPort: 80
+          nodeName: {{ .Values.nodeName }}

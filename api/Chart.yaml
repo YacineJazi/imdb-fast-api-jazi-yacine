@@ -1,0 +1,9 @@
+apiVersion: v1
+appVersion: "1"
+description: Helm chart for imdb machine learning application on Kubernetes
+home: https://github.com/YacineJazi/imdb-fast-api-jazi-yacine
+maintainers:
+- email: yacine.jazi@student.howest.be
+  name: Yacine Jazi
+name: fastapi-ml
+version: "1"

@@ -41,12 +41,12 @@ def getPrediction(file: UploadFile = File(...)):
     req = urllib.request.Request(url, body, headers)
     try:
         response = urllib.request.urlopen(req)
-        #response = requests.get(url).text
         result = response.read()
     except urllib.error.HTTPError as error:
         print("The request failed with status code: " + str(error.code))
         print(error.info())
         print(json.loads(error.read().decode("utf8", 'ignore')))
+        return error.code
     movies = postprocess_data(json.loads(result.decode('utf8')))
     return movies 
     
