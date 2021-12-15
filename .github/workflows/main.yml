@@ -53,7 +53,7 @@ jobs:
         run: helm lint api \
             helm install --name api api \
             helm upgrade name api api \
-            helm install my-repo/api --name=api \\
+            helm install my-repo/api --name=api \
 
       #- name: Deploy to Kubernetes
         #run: kubectl apply -f api/deploy.yaml --validate=false
