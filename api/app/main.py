@@ -71,5 +71,5 @@ def postprocess_data(response):
     return top_movies
 
 # Run the script
-if __name__ == "__main__":
-    uvicorn.run(app)
+#if __name__ == "__main__":
+#    uvicorn.run(app)

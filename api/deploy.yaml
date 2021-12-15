@@ -20,9 +20,6 @@ spec:
           name: api-container
           ports:
           - containerPort: 80
-           # name: 80tcp
-           # protocol: TCP
-           # _serviceType: ClusterIP
       nodeName: jazi-yacine
 ---
 apiVersion: v1
@@ -35,6 +32,6 @@ spec:
     workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-imdb-api 
   ports:
     - name: fastapi-http
-      port: http
+      port: 9999
       targetPort: 80
       protocol: TCP
